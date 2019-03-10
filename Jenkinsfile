@@ -8,7 +8,7 @@ node('slave1') {
         }
         stage('build') {
             steps{
-                sh "${gradleHome} clean build”
+                sh "${gradleHome}/gradlew build”
             }
         }
     }

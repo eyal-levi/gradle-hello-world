@@ -1,15 +1,11 @@
 node('slave1') {
-    def gradleHome = tool 'gradle4'
     stages {
         stage('checkout') {
-            steps {
-                checkout scm
-            }
+            checkout scm
         }
         stage('build') {
-            steps{
-                sh "${gradleHome}/gradlew build”
-            }
+            def gradleHome = tool 'gradle4'
+            sh "${gradleHome}/bin/gradle build”
         }
     }
 }
